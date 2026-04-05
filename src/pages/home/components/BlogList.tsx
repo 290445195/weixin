@@ -2,25 +2,17 @@ import React from 'react';
 import { ChevronRight, FileText, Calendar } from 'lucide-react';
 
 const blogs = [
-  {
-    title: "产品经理的日常工作与挑战",
-    date: "2023-10-15",
-    readCount: 1250,
-    tags: ["职场", "经验"]
-  },
-  {
-    title: "如何提升产品用户体验：从0到1的实战指南",
-    date: "2023-10-10",
-    readCount: 890,
-    tags: ["UX", "干货"]
-  },
-  {
-    title: "人工智能在SaaS产品设计中的应用趋势",
-    date: "2023-09-28",
-    readCount: 2340,
-    tags: ["AI", "趋势"]
-  }
-];
+  "产品经理的日常工作与挑战", "如何提升产品用户体验", "产品经理需要具备的核心技能",
+  "人工智能在产品设计中的应用", "如何打造成功的SaaS产品", "产品需求文档的编写技巧",
+  "用户故事地图的构建方法", "产品上线后的数据分析与优化", "如何与开发团队有效沟通",
+  "产品定价策略与商业模式", "产品生命周期管理策略", "如何进行有效的产品复盘",
+  "产品经理的时间管理技巧", "如何构建产品护城河", "产品经理的职业发展规划"
+].map((title, i) => ({
+  title,
+  date: `2023-10-${(15 - i).toString().padStart(2, '0')}`,
+  readCount: 1000 + Math.floor(Math.random() * 2000),
+  tags: ["干货", "职场", "经验"].sort(() => 0.5 - Math.random()).slice(0, 2)
+}));
 
 export default function BlogList() {
   return (
@@ -36,7 +28,7 @@ export default function BlogList() {
       </div>
       
       <div className="space-y-4">
-        {blogs.map((blog, idx) => (
+        {blogs.slice(0, 5).map((blog, idx) => (
           <div key={idx} className="group p-4 bg-gray-50/50 rounded-2xl border border-gray-100 hover:bg-blue-50/30 hover:border-blue-100 transition-colors cursor-pointer">
             <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
               {blog.title}
@@ -62,6 +54,10 @@ export default function BlogList() {
             </div>
           </div>
         ))}
+        {/* Mock pagination or 'view more' for the remaining 10 blogs */}
+        <button className="w-full py-3 bg-gray-50 text-gray-500 text-sm rounded-xl hover:bg-gray-100 transition-colors font-medium border border-gray-100">
+          查看全部 15 篇文章
+        </button>
       </div>
     </div>
   );

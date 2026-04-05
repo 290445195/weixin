@@ -4,6 +4,7 @@ import { UserCircle, Users, Activity, Globe, MessageSquare } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import FloatingActionButtons from './FloatingActionButtons';
+import NeteaseMusicWidget from './NeteaseMusicWidget';
 
 const navItems = [
   { path: '/', label: '首页', icon: UserCircle },
@@ -33,6 +34,7 @@ export default function Layout() {
         </AnimatePresence>
       </main>
 
+      <NeteaseMusicWidget />
       <FloatingActionButtons />
 
       <nav className="absolute bottom-0 w-full h-16 bg-white/90 backdrop-blur-md border-t border-gray-100 flex items-center justify-around z-50 safe-area-bottom">
